@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Avaliação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="initialForm" onsubmit="handleSubmit(event)" class="form-container">
+        <div class="form-section">
+          <h2>Avaliação Especial de Desempenho</h2>
+          <p class="subtitle">Formulário de Avaliação Especial de Desempenho em estágio probatório</p>
+    
+          <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="matricula">Matrícula *</label>
+            <input type="text" id="matricula" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="orgao">Órgão Municipal *</label>
+            <input type="text" id="orgao" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="setor">Setor *</label>
+            <input type="text" id="setor" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="cargo">Cargo *</label>
+            <input type="text" id="cargo" required>
+          </div>
+        </div>
+    
+        <div class="form-section">
+          <div class="section-title">Preencha todos os campos devidamente</div>
+          <p>Avalie-se de forma justa</p>
+    
+          <div class="form-group checkbox-group">
+            <label>Avaliação Parcial</label>
+            <label><input type="checkbox" name="parcial" value="1"> 1ª</label>
+            <label><input type="checkbox" name="parcial" value="2"> 2ª</label>
+            <label><input type="checkbox" name="parcial" value="3"> 3ª</label>
+          </div>
+    
+          <div class="form-group">
+            <label for="periodo-de">Período De:</label>
+            <input type="date" id="periodo-de" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="periodo-ate">Até:</label>
+            <input type="date" id="periodo-ate" required>
+          </div>
+        </div>
+    
+        <button type="submit">Prosseguir para Avaliação</button>
+    </form>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = {
+                nome: document.getElementById('nome').value,
+                matricula: document.getElementById('matricula').value,
+                orgao: document.getElementById('orgao').value,
+                setor: document.getElementById('setor').value,
+                cargo: document.getElementById('cargo').value,
+                periodoDe: document.getElementById('periodo-de').value,
+                periodoAte: document.getElementById('periodo-ate').value,
+                parcial: Array.from(document.querySelectorAll('input[name="parcial"]:checked')).map(cb => cb.value)
+            };
+
+            // Store form data in localStorage to access it in the evaluation page
+            localStorage.setItem('avaliacaoData', JSON.stringify(formData));
+
+            // Redirect to evaluation page
+            window.location.href = 'avaliacao.html';
+        }
+    </script>
+</body>
+</html>
