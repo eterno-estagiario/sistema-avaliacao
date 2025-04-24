@@ -88,3 +88,133 @@ input {
     border: none;
     outline: none;
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+label {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: var(--linear-grad);
+    transition: 0.3s;
+}
+
+input:focus ~ label {
+    width: 100%;
+}
+
+a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0px;
+}
+
+a.forgot {
+    padding-bottom: 3px;
+    border-bottom: 2px solid #EEE;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid var(--grad-clr1);
+    background-color: var(--grad-clr2);
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.form-container button {
+    margin-top: 17px;
+    transition: 80ms ease-in-out;
+}
+
+.form-container button:hover {
+    background: #FFF;
+    color: var(--grad-clr1);
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 60%;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 9;
+}
+	
+#overlayBtn {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 304px;
+    transform: translateX(-50%);
+    width: 143.67px;
+    height: 40px;
+    border: 1px solid #FFF;
+    background: transparent;
+    border-radius : 20px;
+}
+
+.overlay {
+    position: relative;
+    background: var(--linear-grad);
+    color: #FFF;
+    left: -150%;
+    height: 100%;
+    width: 250%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 40px;
+    text-align: center;
+    height: 100%;
+    width: 340px;
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    right: 60%;
+    transform: translateX(-12%);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0%);
+}
+
+.overlay-panel h1 {
+    color: #FFF;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 25px 0px 35px;
+}
+
+.overlay-panel button {
+    border: none;
+    background-color: transparent;
+}
